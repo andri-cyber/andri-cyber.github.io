@@ -1,37 +1,35 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>QR LOGIN</title>
+  <style>
+    video{width:100%!important;height:auto!important}#reload{margin-top:5px;margin-bottom:10px;padding:5px;background-color:#0336FF;color:#f3f4f5;border-radius:3px;width:150px;cursor:pointer}a{text-decoration:none;color:#0336FF}.progress{padding:10px;margin-top:5px}#camera{position:relative;width:auto;height:100%}#camera:after,#camera:before,#camera>:first-child:after,#camera>:first-child:before{position:absolute;width:80px;height:80px;border-color:red;border-style:solid;content:' '}#camera:before{top:0;left:0;border-width:5px 0 0 5px}#camera:after{top:0;right:0;border-width:5px 5px 0 0}#camera>:first-child:before{bottom:0;right:0;border-width:0 5px 5px 0}#camera>:first-child:after{bottom:0;left:0;border-width:0 0 5px 5px}#camera-inside{padding:10px;margin-bottom:-5px}#hasil{font-size:20px;font-weight:600px;background-color:#76ff03;color:#202020}
 
-You can use the [editor on GitHub](https://github.com/andri-cyber/andri-cyber.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/andri-cyber/andri-cyber.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+  </style>
+<script type="text/javascript" src="llqrcode.js"></script>
+<script type="text/javascript" src="webqr.js"></script>
+</head>
+<body>
+  <center>
+    <div id="main">
+      <div id="mainbody">
+        <div class="progress">
+          QR Login <span id="nama_hotspot"></span>
+          <div id="hasil"></div>
+        </div>
+        <div id="camera">
+            <div id="camera-inside"></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id="reload" onclick="location.reload();">Refresh Camera</div>
+    <p><small>arahkan ke voucher yang ada QR Code</small></p>
+    <br>
+  </center>
+<canvas style="display:none;" id="qr-canvas" width="800" height="600"></canvas>
+<script type="text/javascript">load();</script>
+</body>
+</html>
