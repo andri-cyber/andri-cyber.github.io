@@ -17,7 +17,7 @@
     <div id="main">
       <div id="mainbody">
         <div class="progress">
-          SkyNet QR Code Scanner</span>
+          SkyNet<span id="nama_hotspot"></span>
           <div id="hasil"></div>
         </div>
         <div id="camera">
@@ -26,8 +26,27 @@
       </div>
     </div>
     <br>
-    <div id="reload" onclick="location.reload();">Refresh Camera</div>
-    <p><small>Arahkan Kamera Ke QR Code Voucher</small></p>
+
+    
+     <center>
+    <div id="main">
+      <div id="mainbody">
+        <div class="camera" id="outdiv"></div>
+        <div style="display: table;">
+          <div style="display: table-row;">
+            <div style="display: table-cell; padding:3px;">
+              <div class="btn" id="reload" onclick="location.reload();"><i class="icon icon-arrows-cw">&#xe800;</i> Refresh Camera</div>
+            </div>
+            <div style="display: table-cell; padding:3px;">
+              <a class="btn" href="intent://andri-cyber.github.io/skynet-qr-code.html?hotspot=%20QR%20Code%20Scanner#Intent;scheme=http;package=com.android.chrome;end"><i class="icon icon-chrome-1">&#xf268;</i> Open in Chrome</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>Arahkan Kamera Ke QR Code Voucher <br>Powered by <a href="https://www.facebook.com/Fatal1ty.Killer/">SkyNet</a></div>
+  </center>
+    
     <br>
   </center>
 <canvas style="display:none;" id="qr-canvas" width="800" height="600"></canvas>
