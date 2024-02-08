@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="MpratZ">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>SkyMart Barcode Scanner</title>
+
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="main.css">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+<script src="html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    
+<main>
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="auto" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+  <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+</svg>
+        <span class="fs-1">  SkyMart Barcode Scanner</span>
+      </a>
+    </header>
+
+
+          <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+
+<div class="row">
+
+
+<div id="qr-reader" style="width:100%"></div>
+    <div id="qr-reader-results"></div>
+
+<script>
+    function docReady(fn) {
+        // see if DOM is already available
+        if (document.readyState === "complete"
+            || document.readyState === "interactive") {
+            // call on next available tick
+            setTimeout(fn, 1);
+        } else {
+            document.addEventListener("DOMContentLoaded", fn);
+        }
+    }
+
+    docReady(function () {
+        var resultContainer = document.getElementById('qr-reader-results');
+        var lastResult, countResults = 0;
+        function onScanSuccess(decodedText, decodedResult) {
+            if (decodedText !== lastResult) {
+                ++countResults;
+                lastResult = decodedText;
+                // Handle on success condition with the decoded message.
+                console.log(`Scan result ${decodedText}`, decodedResult);
+                location.href="http://192.168.150.30/FindProduct/cari.php?MpratZ=cari&id_product=" + decodedText;
+            }
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
+    });
+</script>
+
+
+</div>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+</main>
+
+
+    
+  </body>
+</html>
