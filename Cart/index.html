@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="MpratZ A.K.A M4DC0D3R">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>SkyMart Barcode Scanner</title>
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="main.css">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+<script src="html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    
+<main>
+  <div class="container">
+          <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="tile">
+<div class="d-flex justify-content-center">
+<h2 class="mb-3 mt-2" id="buttons">SkyMart Barcode Scanner</h2>
+</div>
+<div class="tile-body">
+<div class="row">
+
+
+<div id="qr-reader" style="width:100%"></div>
+    <div id="qr-reader-results"></div>
+
+<script>
+    function docReady(fn) {
+        // see if DOM is already available
+        if (document.readyState === "complete"
+            || document.readyState === "interactive") {
+            // call on next available tick
+            setTimeout(fn, 1);
+        } else {
+            document.addEventListener("DOMContentLoaded", fn);
+        }
+    }
+
+    docReady(function () {
+        var resultContainer = document.getElementById('qr-reader-results');
+        var lastResult, countResults = 0;
+        function onScanSuccess(decodedText, decodedResult) {
+            if (decodedText !== lastResult) {
+                ++countResults;
+                lastResult = decodedText;
+                // Handle on success condition with the decoded message.
+                console.log(`Scan result ${decodedText}`, decodedResult);
+                location.href="http://192.168.150.30/FindProduct/cari.php?MpratZ=cari&id_product=" + decodedText;
+            }
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
+    });
+</script>
+
+</div>
+</div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+  </body>
+</html>
